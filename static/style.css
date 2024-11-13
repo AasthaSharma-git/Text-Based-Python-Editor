@@ -1,0 +1,97 @@
+/* static/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Flex container to arrange editor and output side by side */
+#editor-output-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    height: 600px;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Editor panel containing Monaco editor */
+#editor-panel {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    resize: horizontal;
+    min-width: 400px;
+}
+
+/* Output panel with button and result area */
+#output-panel {
+    width: 40%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    resize: horizontal;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Position button at the top right of the output panel */
+#output-panel button {
+    align-self: flex-end;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+#output-panel button:hover {
+    background-color: #45a049;
+}
+
+#output-panel h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Output box for displaying the result */
+#output {
+    background-color: #333;
+    color: #eee;
+    padding: 15px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    border-radius: 5px;
+    overflow-y: auto;
+    max-height: 85%;
+    min-height: 150px; /* Ensure it's visible and has space even before running code */
+}
+
+/* Editor container for Monaco */
+#editor-container {
+    flex-grow: 1;
+    height: 100%;
+}

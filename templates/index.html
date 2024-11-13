@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Online Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Monaco Editor CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.21.2/min/vs/loader.min.js"></script>
+</head>
+<body>
+    <h1>Python Online Editor</h1>
+
+    <!-- Flex container for side-by-side layout -->
+    <div id="editor-output-container">
+        <!-- Editor panel containing Monaco editor -->
+        <div id="editor-panel">
+            <div id="editor-container"></div>
+        </div>
+        
+        <!-- Output panel with button and results -->
+        <div id="output-panel">
+            <button onclick="runCode()">Run Code</button>
+            <h2>Output</h2>
+            <pre id="output">Output will appear here...</pre> <!-- Default message -->
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
