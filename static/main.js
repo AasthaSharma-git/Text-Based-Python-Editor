@@ -14,6 +14,10 @@ require(['vs/editor/editor.main'], function () {
 });
 
 // static/main.js
+document.getElementById('setting').addEventListener('click',function(){
+     openSettings()
+})
+
 
 // Function to open settings modal
 function openSettings() {

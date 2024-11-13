@@ -1,32 +1,86 @@
 <!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Online Editor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
     <!-- Monaco Editor CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.21.2/min/vs/loader.min.js"></script>
-</head>
-<body>
-    <h1>Python Online Editor</h1>
+  </head>
+  <body>
+    <header id="header">
+      <div class="header-container">
+        <div class="logo">
+          <!-- Optional Logo: Replace with your logo image -->
+          <img src="../static/assets/python.png" alt="Logo" />
+          <h1>Python Editor</h1>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar with menu items -->
+    <div id="sidebar">
+      <button id="setting">
+        <img src="../static/assets/setting.png" class="menu-options" />
+      </button>
+    </div>
+
 
     <!-- Flex container for side-by-side layout -->
     <div id="editor-output-container">
-        <!-- Editor panel containing Monaco editor -->
-        <div id="editor-panel">
-            <div id="editor-container"></div>
+      <!-- Editor panel containing Monaco editor -->
+      <div id="editor-panel">
+        <div id="editor-container"></div>
+      </div>
+
+      <!-- Output panel with button and results -->
+      <div id="output-panel">
+        <button onclick="runCode()">Run Code</button>
+        <h2>Output</h2>
+        <pre id="output">Output will appear here...</pre>
+        <!-- Default message -->
+      </div>
+    </div>
+
+    <!-- Modal for Settings -->
+    <div id="settings-modal" class="modal">
+      <div class="modal-content">
+        <!-- Close button (×) for the modal -->
+        <span class="close" onclick="closeSettings()">×</span>
+        <h2>Settings</h2>
+        <div class="setting-item">
+          <label for="theme-selector">Theme</label>
+          <select id="theme-selector" onchange="changeTheme(event)">
+            <option value="vs-dark">Dark</option>
+            <option value="vs-light">Light</option>
+          </select>
         </div>
-        
-        <!-- Output panel with button and results -->
-        <div id="output-panel">
-            <button onclick="runCode()">Run Code</button>
-            <h2>Output</h2>
-            <pre id="output">Output will appear here...</pre> <!-- Default message -->
+        <div class="setting-item">
+          <label for="font-size-slider">Font Size</label>
+          <input
+            type="range"
+            id="font-size-slider"
+            min="10"
+            max="24"
+            value="14"
+            onchange="changeFontSize(event)"
+          />
         </div>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='main.js') }}"></script>
-</body>
+  </body>
 </html>
